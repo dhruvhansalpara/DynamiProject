@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<jsp:include page="/componet/header.jsp" />
 <form method="POST" action="/testUrl">
             <center>
             <table border="1" width="30%" cellpadding="3">

@@ -35,7 +35,7 @@ public class LoginServlet extends HttpServlet {
             HttpSession session = request.getSession(true); // reuse existing
             session.setAttribute("user", un);
            //session.setMaxInactiveInterval(30); // 30 seconds
-            response.sendRedirect("Home.jsp");
+            response.sendRedirect("/userlistview?action=list");
         } else {
         
             response.sendRedirect("login.jsp");

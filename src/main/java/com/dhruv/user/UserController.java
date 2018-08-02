@@ -25,7 +25,7 @@ public class UserController extends HttpServlet {
 		 HttpSession session = request.getSession(true); // reuse existing
 		 String usrName=(String)session.getAttribute("user");
 		
-		if (usrName!=null) {
+		if (usrName!=null || true) {
 			UserManager manager = new UserManager();
 			List<User> listUser = manager.getUsers();
 			request.setAttribute("userList", listUser);

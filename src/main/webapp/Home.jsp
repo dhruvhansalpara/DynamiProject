@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
- 
+ <jsp:include page="/componet/header.jsp" />
  
  <%  
  
