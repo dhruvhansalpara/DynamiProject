@@ -16,11 +16,17 @@
 	href="//fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=cyrillic,cyrillic-ext,latin-ext,vietnamese"
 	rel="stylesheet">
 	
+	<%
+	
+	 HttpSession ssin = request.getSession(true);
+	 String userName=(String)ssin.getAttribute("user");
+	
+	%>
 	
     	<div class="banner">
 		<header>
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
-				<a class="navbar-brand" href="index.html">Madhuram Techanology</a>
+				<a class="navbar-brand" href="/index.jsp">Madhuram Techanology</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarSupportedContent"
 					aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -47,8 +53,15 @@
 							</div></li>
 						<li class="nav-item ml-xl-2"><a class="nav-link scroll"
 							href="#section3">Portfolio</a></li>
-						<li class="nav-item ml-xl-2"><a class="nav-link scroll"
-							href="Login.jsp">Login</a></li>
+						<li class="nav-item ml-xl-2">
+						
+						<%if(userName==null){ %>
+						<a class="nav-link scroll"
+							href="Login.jsp">Login</a>
+						<%}else{%>	
+						        <span>Hi, <%=userName %> </span>
+							<%}%>
+							</li>
 					</ul>
 				</div>
 			</nav>

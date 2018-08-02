@@ -4,12 +4,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<!-- 
+ -->
+
 <title>Insert title here</title>
 </head>
 <body>
 
 <jsp:include page="/componet/header.jsp" />
-<form method="POST" action="/testUrl">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/script/jstest.js"></script>
+
+
+<form method="POST" action="/loginurl">
             <center>
             <table border="1" width="30%" cellpadding="3">
                 <thead>
@@ -19,8 +28,8 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>User Name</td>
-                        <td><input type="text" name="uname" value="" /></td>
+                        <td>Email</td>
+                        <td><input type="text" name="email" value="" /></td>
                     </tr>
                     <tr>
                         <td>Password</td>
@@ -31,11 +40,16 @@
                         <td><input type="reset" value="Reset" /></td>
                     </tr>
                     <tr>
-                        <td colspan="2">Yet Not Registered!! <a href="reg.jsp">Register Here</a></td>
+                        <td colspan="2">Yet Not Registered!! <a href="Register.jsp">Register Here</a></td>
                     </tr>
                 </tbody>
             </table>
             </center>
         </form>
+        
+        <p>
+        
+        dssdfsdfsf  </p>
+        
 </body>
 </html>

@@ -2,6 +2,7 @@ package com.dhruv.user;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -9,6 +10,39 @@ import com.dhruv.util.DBConnection;
 
 public class UserManager {
 
+	
+   public static Map<String, User> map=new HashMap<String, User>();
+	
+	public void addUser(String fistName, String email, String password)
+	{
+		User user=new User();
+		user.setEmail(email);
+		user.setFirstName(fistName);
+		user.setPassword(password.trim());
+		map.put(email, user);
+		
+	}
+	
+	public boolean validateUser(String email, String password)
+	{
+		if(map.containsKey(email))
+		{
+			User user=map.get(email);
+			return password.trim().equals(user.getPassword());
+		}
+		
+		return false;
+	}
+	
+	public String getFirstName(String email)
+	{
+		if(map.containsKey(email))
+		{
+			return map.get(email).getFirstName();
+		}
+		
+		return null;
+	}
 	
 	public List<User> getUsers() {
 		List<User> users = new ArrayList<User>();

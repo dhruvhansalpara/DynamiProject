@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.dhruv.user.UserManager;
+
 
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -29,11 +31,17 @@ public class LoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html");
         
-        String un = request.getParameter("uname");
+		UserManager userManager=new UserManager();
+        String email = request.getParameter("email");
         String pwd = request.getParameter("pass");
-        if (un.equals("test")) {
+        boolean isValid=userManager.validateUser(email, pwd);
+        if (isValid) {
+        	
+        	String firstName=userManager.getFirstName(email);
             HttpSession session = request.getSession(true); // reuse existing
-            session.setAttribute("user", un);
+            session.setAttribute("user", firstName);
+            
+        
            //session.setMaxInactiveInterval(30); // 30 seconds
             response.sendRedirect("/userlistview?action=list");
         } else {
